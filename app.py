@@ -10,6 +10,8 @@ app = Potassium("my_app")
 def init():
     device = 0 if torch.cuda.is_available() else -1
     model = pipeline('fill-mask', model='bert-base-uncased', device=device)
+
+    print("ran init")
    
     context = {
         "model": model
@@ -23,6 +25,8 @@ def handler(context: dict, request: Request) -> Response:
     prompt = request.json.get("prompt")
     model = context.get("model")
     outputs = model(prompt)
+
+    print("ran handler")
 
     return Response(
         json = {"outputs": outputs[0]}, 
