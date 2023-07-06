@@ -11,7 +11,7 @@ def init():
     device = 0 if torch.cuda.is_available() else -1
     model = pipeline('fill-mask', model='bert-base-uncased', device=device)
 
-    print("ran init")
+    print("ran init", flush=True)
    
     context = {
         "model": model
@@ -26,7 +26,7 @@ def handler(context: dict, request: Request) -> Response:
     model = context.get("model")
     outputs = model(prompt)
 
-    print("ran handler")
+    print("ran handler", flush=True)
 
     return Response(
         json = {"outputs": outputs[0]}, 
