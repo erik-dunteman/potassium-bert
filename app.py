@@ -1,5 +1,5 @@
 from potassium import Potassium, Request, Response
-
+import time
 from transformers import pipeline
 import torch
 
@@ -11,7 +11,9 @@ def init():
     device = 0 if torch.cuda.is_available() else -1
     model = pipeline('fill-mask', model='bert-base-uncased', device=device)
 
+    time.sleep(1)
     print("ran init")
+    time.sleep(1)
    
     context = {
         "model": model
