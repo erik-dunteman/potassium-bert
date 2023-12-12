@@ -15,8 +15,7 @@ RUN pip3 install -r requirements.txt
 # (in this case we have a python script)
 ADD download.py .
 RUN python3 download.py
-
-RUN echo "HI hi there"
+RUN rm download.py
 
 ADD . .
 
