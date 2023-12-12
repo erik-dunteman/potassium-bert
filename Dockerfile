@@ -16,6 +16,8 @@ RUN pip3 install -r requirements.txt
 ADD download.py .
 RUN python3 download.py
 
+RUN echo "HI"
+
 ADD . .
 
 EXPOSE 8000
