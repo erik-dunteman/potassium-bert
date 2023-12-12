@@ -28,7 +28,7 @@ def handler(context: dict, request: Request) -> Response:
     model = context.get("model")
     outputs = model(prompt)
 
-    print("ran handler")
+    print("ran handler, but this time printing more!")
 
     return Response(
         json = {"outputs": outputs[0]}, 
